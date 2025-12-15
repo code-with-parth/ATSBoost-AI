@@ -15,7 +15,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { User, Settings, LogOut, Menu, X } from 'lucide-react'
+import { User, Settings, LogOut, Menu, X, CreditCard } from 'lucide-react'
 import { toast } from 'sonner'
 
 export function DashboardNav() {
@@ -51,6 +51,11 @@ export function DashboardNav() {
       name: 'Analyze',
       href: '/dashboard/analyze',
       current: pathname.startsWith('/dashboard/analyze'),
+    },
+    {
+      name: 'Billing',
+      href: '/dashboard/billing',
+      current: pathname.startsWith('/dashboard/billing'),
     },
     { name: 'Settings', href: '/settings', current: pathname === '/settings' },
   ]
@@ -117,6 +122,12 @@ export function DashboardNav() {
                   <Link href="/settings" className="cursor-pointer">
                     <Settings className="mr-2 h-4 w-4" />
                     <span>Settings</span>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/dashboard/billing" className="cursor-pointer">
+                    <CreditCard className="mr-2 h-4 w-4" />
+                    <span>Billing</span>
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
