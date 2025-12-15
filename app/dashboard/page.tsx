@@ -189,10 +189,12 @@ export default function DashboardPage() {
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <Button variant="outline" className="w-full justify-start">
-              <FileText className="mr-2 h-4 w-4" />
-              Boost New Resume
-            </Button>
+            <Link href="/dashboard/analyze" className="block">
+              <Button variant="outline" className="w-full justify-start">
+                <FileText className="mr-2 h-4 w-4" />
+                Boost New Resume
+              </Button>
+            </Link>
             <Button variant="outline" className="w-full justify-start">
               <Users className="mr-2 h-4 w-4" />
               View Profile Analytics

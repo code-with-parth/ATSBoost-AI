@@ -42,6 +42,11 @@ export function DashboardNav() {
 
   const navigation = [
     { name: 'Dashboard', href: '/dashboard', current: pathname === '/dashboard' },
+    {
+      name: 'Analyze',
+      href: '/dashboard/analyze',
+      current: pathname.startsWith('/dashboard/analyze'),
+    },
     { name: 'Settings', href: '/settings', current: pathname === '/settings' },
   ]
 
