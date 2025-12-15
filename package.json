@@ -33,7 +33,8 @@
     "mammoth": "^1.7.2",
     "openai": "^4.80.0",
     "pdf-parse": "^1.1.1",
-    "pdfkit": "^0.16.0"
+    "pdfkit": "^0.16.0",
+    "stripe": "^14.8.0"
   },
   "devDependencies": {
     "typescript": "^5",

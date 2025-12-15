@@ -5,6 +5,7 @@ import { extractTextFromResume } from '@/lib/resume/parse'
 import { analyzeResumeWithOpenAI } from '@/lib/openai/resume-analysis'
 import { estimateTokens, normalizeText } from '@/lib/text/normalize'
 import { generateOptimizedResumePdf } from '@/lib/resume/pdf'
+import { enforceQuota } from '@/lib/quota'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -42,6 +43,14 @@ export async function POST(request: Request) {
 
   if (userError || !user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
+  // Check quota before processing
+  try {
+    await enforceQuota(user.id)
+  } catch (quotaError) {
+    const message = quotaError instanceof Error ? quotaError.message : 'Quota check failed'
+    return NextResponse.json({ error: message }, { status: 429 })
   }
 
   let analysisId: string | null = null

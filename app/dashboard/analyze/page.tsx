@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea'
 import { Progress } from '@/components/ui/progress'
 import { toast } from 'sonner'
 import { FileText, Loader2, UploadCloud, Download } from 'lucide-react'
+import { QuotaDisplay } from '@/components/quota-display'
 
 type AnalyzeResponse = {
   analysisId: string
@@ -128,6 +129,8 @@ export default function AnalyzePage() {
           an optimized resume, and a cover letter.
         </p>
       </div>
+
+      <QuotaDisplay />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Card>
